@@ -1,6 +1,6 @@
 {
   "name": "format-duration",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module", 
   "main": "./dist/format-duration.umd.cjs",
   "module": "./dist/format-duration.js",
