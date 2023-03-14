@@ -1,0 +1,38 @@
+{
+  "name": "format-duration",
+  "version": "0.0.0",
+  "type": "module", 
+  "main": "./dist/format-duration.umd.cjs",
+  "module": "./dist/format-duration.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/format-duration.js",
+      "require": "./dist/format-duration.umd.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && vite build",
+    "lint": "eslint \"src/**/*.{ts}\"",
+    "lint:fix": "eslint \"src/**/*.{ts}\" --fix",
+    "test:watch": "vitest --config ./vitest.config.ts",
+    "test:ci": "vitest run --config ./vitest.config.ts --reporter junit --outputFile test-output.xml",
+    "test": "vitest run --config ./vitest.config.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.1",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "typescript": "^4.9.3",
+    "vite": "^4.1.0",
+    "vite-plugin-dts": "^2.1.0",
+    "vitest": "^0.29.2",
+    "prettier": "~2.8.3",
+    "eslint": "^8.32.0",
+    "eslint-plugin-vue": "^9.9.0",
+    "husky": "^8.0.3"
+  }
+}

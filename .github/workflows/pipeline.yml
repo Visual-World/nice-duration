@@ -1,0 +1,27 @@
+name: Publish Package to npm
+
+on:
+  push:
+    paths-ignore:
+      - '**/README.md'
+      - '**/README_DEV.md'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set version to env
+        run: |
+          echo "VERSION=1.0.$(date +%s)" >> $GITHUB_ENV
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm ci
+      - run: npm run build
+      - run: npm run test:ci
+      - run: npm version --no-git-tag-version ${{ env.VERSION }}
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
