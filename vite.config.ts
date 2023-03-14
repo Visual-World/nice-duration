@@ -8,8 +8,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'format-duration',
-      fileName: 'format-duration',
+      name: 'nice-duration',
+      fileName: 'nice-duration',
     },
     sourcemap: true,
     minify: false,

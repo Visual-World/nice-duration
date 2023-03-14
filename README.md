@@ -1,1 +1,1 @@
-# format-duration
+# nice-duration

@@ -1,14 +1,14 @@
 {
-  "name": "format-duration",
+  "name": "nice-duration",
   "version": "1.0.0",
   "type": "module", 
-  "main": "./dist/format-duration.umd.cjs",
-  "module": "./dist/format-duration.js",
+  "main": "./dist/nice-duration.umd.cjs",
+  "module": "./dist/nice-duration.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/format-duration.js",
-      "require": "./dist/format-duration.umd.cjs"
+      "import": "./dist/nice-duration.js",
+      "require": "./dist/nice-duration.umd.cjs"
     }
   },
   "files": [
