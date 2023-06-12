@@ -27,13 +27,13 @@ describe("formatDuration", () => {
       expect(result).toBe("9h, 6min, 18sec")
     })
   
-    test("format 32478min to 22 d, 13h, 18min (no spaces)", () => {
+    test("format 32478min to 22d, 13h, 18min (no spaces)", () => {
       const result = formatDuration({ minutes: 32478, noSpaceBetweenNumberAndUnit: true })
   
       expect(result).toBe("22d, 13h, 18min")
     })
   
-    test("format 38h to 1 d, 14h (no spaces)", () => {
+    test("format 38h to 1d, 14h (no spaces)", () => {
       const result = formatDuration({ hours: 38, noSpaceBetweenNumberAndUnit: true })
   
       expect(result).toBe("1d, 14h")
@@ -43,6 +43,30 @@ describe("formatDuration", () => {
       const result = formatDuration({ hours: 5, noSpaceBetweenNumberAndUnit: true })
   
       expect(result).toBe("5h")
+    })
+  
+    test("format 25h and 15min to 1d, 1h (no spaces; resolution=2)", () => {
+      const result = formatDuration({ hours: 25, minutes: 12, resolution: 2, noSpaceBetweenNumberAndUnit: true })
+  
+      expect(result).toBe("1d, 1h")
+    })
+  
+    test("format 24h and 12min to 1d (no spaces; resolution=2)", () => {
+      const result = formatDuration({ hours: 24, minutes: 12, resolution: 2, noSpaceBetweenNumberAndUnit: true })
+  
+      expect(result).toBe("1d")
+    })
+  
+    test("format 24h and 12sec to 1d (no spaces; resolution=2)", () => {
+      const result = formatDuration({ hours: 24, seconds: 12, resolution: 2, noSpaceBetweenNumberAndUnit: true })
+  
+      expect(result).toBe("1d")
+    })
+  
+    test("format 24h and 12sec to 1d (no spaces)", () => {
+      const result = formatDuration({ hours: 24, seconds: 12, noSpaceBetweenNumberAndUnit: true })
+  
+      expect(result).toBe("1d, 0h, 0min, 12sec")
     })
   })
   

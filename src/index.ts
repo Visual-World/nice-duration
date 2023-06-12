@@ -63,18 +63,23 @@ export function formatDuration(input: {
   const seconds = Math.round(totalRemainingSeconds)
 
   const resultArr: string[][] = []
+  const isResolutionExhausted = () => (!!resolution && resultArr.length >= resolution)
 
   if (days) {
     resultArr.push(getValueUnitArray(days, localization.days))
   }
-  if (hours && (!resolution || resultArr.length < resolution)) {
+  if ((hours|| resultArr.length > 0) && !isResolutionExhausted()) {
     resultArr.push(getValueUnitArray(hours, localization.hours))
   }
-  if (minutes && (!resolution || resultArr.length < resolution)) {
+  if ((minutes || resultArr.length > 0) && !isResolutionExhausted()) {
     resultArr.push(getValueUnitArray(minutes, localization.minutes))
   }
-  if ((seconds && (!resolution || resultArr.length < resolution)) || resultArr.length == 0) {
+  if (!isResolutionExhausted()) {
     resultArr.push(getValueUnitArray(seconds, localization.seconds))
+  }
+
+  while(resultArr.length > 0 && resultArr.at(-1)?.at(0) === '0') {
+    resultArr.pop()
   }
 
   const valueUnitGlue = noSpaceBetweenNumberAndUnit ? "" : " "

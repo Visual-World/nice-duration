@@ -2,7 +2,7 @@
 
 Normalizes and formats duration to human readable string.
 
-This library written in TypeScript with support for treeshakable localization. This results to 2 kb of bundle size. 
+This library written in TypeScript with support for tree shakable localization. This results to 2 kb of bundle size. 
 
 ## Install
 ```bash
