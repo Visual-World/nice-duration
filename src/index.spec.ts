@@ -68,5 +68,22 @@ describe("formatDuration", () => {
   
       expect(result).toBe("1d, 0h, 0min, 12sec")
     })
+  
+    test("format 24h and 12sec to 1d (no spaces)", () => {
+      const result = formatDuration({ hours: 24, seconds: 12, noSpaceBetweenNumberAndUnit: true })
+  
+      expect(result).toBe("1d, 0h, 0min, 12sec")
+    })
+  
+    test("format 0s to 0sec", () => {
+      const result = formatDuration({ seconds: 0, noSpaceBetweenNumberAndUnit: true })
+  
+      expect(result).toBe("0sec")
+    })
+    test("format 0s to 0sec (no spaces; resolution=2)", () => {
+      const result = formatDuration({ seconds: 0, noSpaceBetweenNumberAndUnit: true })
+  
+      expect(result).toBe("0sec")
+    })
   })
   

@@ -78,7 +78,7 @@ export function formatDuration(input: {
     resultArr.push(getValueUnitArray(seconds, localization.seconds))
   }
 
-  while(resultArr.length > 0 && resultArr.at(-1)?.at(0) === '0') {
+  while(resultArr.length > 1 && resultArr.at(-1)?.at(0) === '0') {
     resultArr.pop()
   }
 
