@@ -7,8 +7,10 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/nice-duration.js",
-      "require": "./dist/nice-duration.umd.cjs"
+      "require": "./dist/nice-duration.umd.cjs",
+      "default": "./dist/nice-duration.js"
     }
   },
   "files": [
